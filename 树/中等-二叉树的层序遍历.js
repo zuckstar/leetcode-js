@@ -53,7 +53,7 @@ var levelOrder = function(root) {
           let q = queue.shift()
           res[res.length-1].push(q.val)
 
-          if(q.left) queue.push(q.left)
+          if(q.left) queue.push(q.left) // 注意判断节点是否为空
           if(q.right) queue.push(q.right)
       }
   }
