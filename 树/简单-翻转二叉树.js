@@ -22,7 +22,7 @@
 https://leetcode-cn.com/problems/invert-binary-tree/
 */ 
 
-// 利用递归算法，先从叶子节点开始交换左右节点，直至交换根节点的左右节点
+// 此题即剑指offer中的镜像二叉树，利用递归算法，先从叶子节点开始交换左右节点，直至交换根节点的左右节点
 
 /**
  * @param {TreeNode} root
