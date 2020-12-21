@@ -25,32 +25,28 @@ https://leetcode-cn.com/problems/path-sum-ii/
 */ 
 
 // 基本思路： 递归 + 回溯
-/**
- * @param {TreeNode} root
- * @param {number} sum
- * @return {number[][]}
- */
+
 var pathSum = function(root, sum) {
-  const res = []
 
-  const dfs = (root, path, total)=>{
-      if(!root) return 
+    let res = []
 
-      path.push(root.val)
-      total += root.val
+    const dfs = function (node, path, leftSum) {
 
-      if(!root.left && !root.right) {
-          if(total === sum) {
-              res.push(path.slice()) // 注意！这个数组的 slice 拷贝！否则会添加数组的引用，最后的结果都为空数组
-          }
-      } else {
+        if(!node) return
 
-          dfs(root.left, total, path)
-          dfs(root.right, total, path)
-      }
+        path.push(node.val) 
 
-      path.pop()
-  }
-  dfs(root, [], 0)
-  return res
+        if(!node.left && !node.right && leftSum == node.val) {
+            res.push(path.slice())// 注意！这个数组的 slice 拷贝！否则会添加数组的引用，最后的结果都为空数组
+        }
+
+        dfs(node.left, path, leftSum - node.val) 
+        dfs(node.right, path, leftSum - node.val)
+
+        path.pop()
+
+    }
+
+    dfs(root, [], sum)
+    return res
 };
