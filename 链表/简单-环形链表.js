@@ -33,8 +33,8 @@ var hasCycle = function(head) {
       return false
   }
   let slow = head
-  let fast = head.next  // fast 指针的起始指针不一定要在 slow 的后两个，只要起始位置不同即可，fast 指针步进为2
-  // slow 指针步进为 1
+  let fast = head.next  // fast 指针的起始指针不一定要在 slow 的后两个，只要起始位置不同即可，fast 指针步长为2
+  // slow 指针步长为 1
 
   while(fast && fast.next) {
       if(slow === fast) return true
