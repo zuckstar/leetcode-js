@@ -40,7 +40,8 @@ var containsNearbyDuplicate = function (nums, k) {
   }
   return false
 };
-/* 维护一个长度为 k 的Set/Map数据结构，每添加一个数据就判断是否已存在，超出长度 k 则移除之前的元素，若重复则返回 true 时间复杂度 O(n) */
+/* 维护一个长度为 k 的Set/Map数据结构，每添加一个数据就判断是否已存在，超出长度 k 则移除之前的元素，若重复则返回 true 时间复杂度 O(n) ，类似滑动窗口的解法，但是利用了 Set 数据结构可以更好地判断是否存在重复元素
+*/
 var containsNearbyDuplicate = function (nums, k) {
   let set = new Set()
   let length = nums.length
