@@ -24,6 +24,26 @@
 https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
 */ 
 
-// 解法一：循环链表
+// 解法一：循环链表，建立循环链表，逐个遍历删除，剩下的节点就是结果。但是 n 很大的时候，时间空间复杂度高
 
-// 
+// 解法二：动态规划（约瑟夫环问题）
+/*
+当 n = 1 的时候，剩下的数字的下标一定为 0
+当 n = 2 的时候，向 0 的前面补 m 个数字，如果 m > n 需要取余 % n, 得到的下标是存活的数字的下标
+当 n = 3 的时候， f(3) = (f(2)+m)%n
+...以此类推，求得 n 的时候，存活数字的下标
+*/ 
+
+
+/**
+ * @param {number} n
+ * @param {number} m
+ * @return {number}
+ */
+ var lastRemaining = function(n, m) {
+  let res = 0
+  for(let i = 1; i <= n; i++) {
+      res = (res + m) % i
+  }
+  return res
+};
