@@ -90,9 +90,9 @@ https://leetcode-cn.com/problems/zheng-ze-biao-da-shi-pi-pei-lcof/
                     // 当前串为 '*' 的情况
                     // 不看 * 
                     if(j >= 2) {
-                        dp[i][j] |= dp[i][j-2]
+                        dp[i][j] = dp[i][j-2]
                     } 
-                    // 看 *
+                    // 看 *, 这里用了一个 |= 或者等于，是因为有可能不看*已经匹配成功，只要其中一种情况匹配成功即可
                     if(j >= 2 && i >= 1 && (s[i-1] == p[j-2] || p[j-2] == '.') ) {
                         dp[i][j] |= dp[i-1][j]
                     }
