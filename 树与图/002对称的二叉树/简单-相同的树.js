@@ -46,9 +46,13 @@
  * @param {TreeNode} q
  * @return {boolean}
  */
-var isSameTree = function(p, q) {
-  if(p === null && q === null) return true
-  if(p === null || q === null) return false
-  if(p.val !== q.val) return false
-  return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+ var isSameTree = function(p, q) {
+        // 同为 null 返回真
+        if(!q && !p) return true
+        // 有一颗不为 null 返回假
+        if(!q || !p) return false
+        // 值不相等 返回假
+        if(q.val != p.val) return false
+        // 继续递归
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
 };

@@ -22,12 +22,21 @@
 https://leetcode-cn.com/problems/invert-binary-tree/
 */ 
 
-// 此题即剑指offer中的镜像二叉树，利用递归算法，先从叶子节点开始交换左右节点，直至交换根节点的左右节点
+// 解法一：不改变 root 返回一棵新的镜像树
+var mirrorTree = function(root) {
+  const helper = (root) => {
+      if(!root) return null
+      let node = new TreeNode(root.val)
 
-/**
- * @param {TreeNode} root
- * @return {TreeNode}
- */
+      node.left = helper(root.right)
+      node.right = helper(root.left)
+
+      return node
+  }
+
+  return helper(root)
+};
+// 解法二：直接在原树上进行翻转
 var invertTree = function(root) {
   if(root === null) {
       return null
