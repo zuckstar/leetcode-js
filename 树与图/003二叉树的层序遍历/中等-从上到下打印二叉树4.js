@@ -18,16 +18,7 @@
   [9,20],
   [3]
 ]
-
-
 */ 
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
 
 // 简要思路：BFS法。可以先做二叉树的层次遍历I， 就是把添加结果的方式从从数组末尾推入改成从数组头部推入
 
