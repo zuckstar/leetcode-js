@@ -21,21 +21,24 @@ LeetCode 刷题指南（JavaScript版）
 当掌握了递归的方式来遍历二叉树后，一些面试官会要求给出迭代遍历二叉树的算法。
 在二叉树的迭代遍历算法中，一般可以借助栈来记住遍历过的节点，其中的难点是二叉树后序遍历的时候一些节点会出现二次遍历的情况，此时需要判断该节点是否已经被遍历过。
 
-[二叉树前序遍历](https://github.com/zuckstar/leetcode-js/blob/day-by-day/%E6%A0%91%E4%B8%8E%E5%9B%BE/001%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.js)
+[二叉树前序遍历](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/001%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.js)
 
-[二叉树中序遍历](https://github.com/zuckstar/leetcode-js/blob/day-by-day/%E6%A0%91%E4%B8%8E%E5%9B%BE/001%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86.js)
+[二叉树中序遍历](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/001%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86.js)
 
-[二叉树后序遍历](https://github.com/zuckstar/leetcode-js/blob/day-by-day/%E6%A0%91%E4%B8%8E%E5%9B%BE/001%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86.js)
+[二叉树后序遍历](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/001%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86.js)
 ### 对称的二叉树
 
 首先先学习如何判断两个二叉树是否相等：
-[判断两棵树是否相同]
+
+[判断两棵树是否相同](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/002%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/%E7%AE%80%E5%8D%95-%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91.js)
 
 学会了判断两棵树是否相等后，我们可以利用同样的思路来判断一棵二叉树是不是对称的，其实就是把树的两个子节点看成两棵树，再来做比较而已。
-[判断一棵树是不是对称的]
+
+[判断一棵树是不是对称的](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/002%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/%E7%AE%80%E5%8D%95-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91.js)
 
 既然能判断一棵二叉树是不是对称的，那输出二叉树的镜像也不是什么难题了，Homebrew 的作者曾在 Google 面试中因写不出这道题而被拒绝（未经考证），但是题目不难，大家可以试试。
-[翻转二叉树/二叉树的镜像]
+
+[翻转二叉树/二叉树的镜像](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/002%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/%E7%AE%80%E5%8D%95-%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91.js)
 
 ### 二叉树的层序遍历
 
@@ -43,13 +46,17 @@ LeetCode 刷题指南（JavaScript版）
 在这其中二叉树的层序遍历可以形成一个系列，把层序遍历的考察玩出花。
 
 从上到下，从左至右的层序遍历二叉树，把值放在一个数组里，借助一个队列就可以解决：
-[从上到下打印二叉树I]
+
+[从上到下打印二叉树I](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%911.js)
 
 仍然是从上到下，从左至右，但是同一层的节点的值要放在一个子数组里，定义两个队列，一个队列记录当前层的节点，一个队列记录下一层的节点即可解决：
-[从上到下打印二叉树II]
+
+[从上到下打印二叉树II](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%912.js)
 
 之字形打印二叉树，记录当前是奇数层还是偶数层，如果是偶数层则把结果翻转。也可以借助栈的特性，用两个栈来解决，不过相对来说就麻烦多了。
-[从上到下打印二叉树III]
+
+[从上到下打印二叉树III](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%913.js)
 
 自底向上的层序遍历，从左至右遍历（可以说出题者是相当无聊了）,讨巧一点，我们可以把（从上到下打印二叉树II）的结果反转一下，或者在每次添加结果的时候，都从头插入(unshift)，而不是从尾部插入(push)。
-[从上到下打印二叉树IV]
+
+[从上到下打印二叉树IV](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%914.js)
