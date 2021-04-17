@@ -27,7 +27,13 @@ https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
 */ 
 
 
-// 深度遍历
+/*
+深度遍历
+思路： 
+1. 空节点返回0
+2. 叶子节点返回1
+对每个非叶子节点，我们只需要分别计算左右子树的最小叶子深度，返回最小深度+1
+*/ 
 /**
  * @param {TreeNode} root
  * @return {number}
