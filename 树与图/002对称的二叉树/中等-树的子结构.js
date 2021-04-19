@@ -36,33 +36,21 @@ https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/
 */ 
 
 // 本题中包含着一个子问题，判断两棵树是否相等，建议可以先完成该题的基础上再来做这道题。
-
-
-
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} A
- * @param {TreeNode} B
- * @return {boolean}
- */
 var isSubStructure = function(A, B) {
-    if(!A || !B) return false;   // 约定空树不是任意一个树的子结构
 
-    return isSameTree(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B)
+    // 空树不是任何一个树的子结构，!B 成立为假，若 !A 成立，无法计算子结构，返回假
+    if(!A || !B) return false
+
+    const isSubTree = (n, m) => {
+        // m 树提前遍历结束，返回真
+        if(!m) return true
+        // n 树遍历结束，然而 m 树还没遍历结束，返回假
+        if(!n) return false
+        // 值不相等返回假
+        if(n.val != m.val) return false
+
+        return isSubTree(n.left, m.left) && isSubTree(n.right, m.right)
+    }
+
+    return isSubTree(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B)
 };
-var isSameTree = function (A,B) { // 这个算法与判断是否同一颗树有些微的区别，因为只要保证 B 树是 A 的子树就行了，所以当 B 的叶子节点为空的时候，没必要保证 A 的当前叶子节点也为空
-
-    if(!B) return true
-    if(!A) return false
-
-    if(A.val !== B.val) return false
-
-    return isSameTree(A.left, B.left) && isSameTree(A.right, B.right)
-
-}
