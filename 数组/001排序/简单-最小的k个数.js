@@ -30,24 +30,24 @@ https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
   })
   return arr.slice(0,k)
 };
-// 解法二：基于快排的 partition
 
+// 解法二：基于快排的 partition
 var getLeastNumbers = function(arr, k) {
   const quickSort = (arr, k, l, r) => {
       let i = l, j = r
-
+      // 默认基准值为 arr[l]
       while(i < j) {
           while(i < j && arr[j] >= arr[l]) j--
           while(i < j && arr[i] <= arr[l]) i++
 
-          [arr[i] ,arr[j]] = [arr[j], arr[i]] 
+          [arr[i] ,arr[j]] = [arr[j], arr[i]] // 左右交换位置
       }
-      [arr[l], arr[i]] = [arr[i], arr[l]]
+      [arr[l], arr[i]] = [arr[i], arr[l]] 
 
-      if(i > k) return quickSort(arr, k, l, i - 1)
+      if(i > k) return quickSort(arr, k, l, i - 1) // 继续递归，直到位置为 k 的数归位为止
       if(i < k) return quickSort(arr, k, i + 1, r)
       return arr.slice(0,k)
   }
-  if(k >= arr.length) return arr
+  if(k >= arr.length) return arr // k 若超出数组的长度则直接返回数组
   return quickSort(arr, k, 0, arr.length - 1)
 };
