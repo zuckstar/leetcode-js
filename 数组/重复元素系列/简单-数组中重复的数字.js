@@ -20,7 +20,7 @@ https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/
 
 */ 
 
-// 思路：利用 Set 或者 Map 数据结构的特性，来判断数字是否已经储存过
+// 解法1：利用 Set 或者 Map 数据结构的特性，来判断数字是否已经储存过
 
 var findRepeatNumber = function(nums) {
   let map = new Map()
@@ -34,3 +34,24 @@ var findRepeatNumber = function(nums) {
   }
   return -1
 };    
+
+// 解法2：不利用额外空间，原地置换法 O(n) 时间复杂度
+var findRepeatNumber = function(nums) {
+    let i = 0
+    while(i < nums.length) {
+        let item = nums[i]
+        if(nums[i] === i) {
+            i++
+            continue
+        }
+
+        if(nums[item] === item) return item
+
+        let tmp = nums[item]
+        nums[item] = nums[i]
+        nums[i] = tmp
+    }
+
+    return -1
+
+};

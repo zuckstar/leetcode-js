@@ -27,16 +27,15 @@ var reverseList = function(head) {
 
 // 2 递归法
 var reverseList = function(head) {
-  // head 为 null, 则直接返回 head
-  // 若 head 指针为最后一个节点，则返回当前 head 作为结果（新链表的头指针）
-  if(head == null || head.next == null) {
-      return head;
+  // 说明到了最后一个节点了，返回新的头节点    
+  if(!head || !head.next) {
+      return head
   }
 
-  let res = reverseList(head.next) // 寻找最后一个节点
+  let newHead = reverseList(head.next) // 递归获得新的头节点
 
-  head.next.next = head // 让当前节点的下一个节点的 next 指向当前节点
-  head.next = null // 让当前节点 next 指针指向 null (修复递归到头节点的时候，next 指针的指向)
+  head.next.next = head // 改变指针指向
+  head.next = null
 
-  return res
+  return newHead  // 向上传递新的头节点
 };

@@ -31,20 +31,23 @@ https://leetcode-cn.com/problems/validate-binary-search-tree/
 // 思路：中序遍历一颗二叉搜索树的结果是一个排序数组（从小到大）
 // 对该二叉树进行中序遍历，当前节点的值必须大于上一节点遍历的值，则该树符合二叉搜索树的性质，继续遍历，直到结束，若不符合，则直接返回 false
 
-
 var isValidBST = function(root) {
 
   let pre = -Infinity
 
-  const dfs = function(node) {
+  const dfs = (node) => {
+      // 中序遍历
       if(!node) return true
 
-      if(!dfs(node.left)) return false
+      if(!dfs(node.left)) return false // 左
 
-      if(node.val <= pre) return false
-      pre = node.val
+      if(node.val <= pre) return false // 等于也是不行的
 
-      return dfs(node.right)
+      pre = node.val // 根
+
+      return dfs(node.right) // 右
   }
+
   return dfs(root)
+
 };
