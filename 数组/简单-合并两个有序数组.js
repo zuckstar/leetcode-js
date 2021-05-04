@@ -59,6 +59,23 @@ var merge = function (nums1, m, nums2, n) {
   return nums1
 };
 
+// 面试题 10.01. 合并排序的数组
+var merge = function(A, m, B, n) {
+  let i = m - 1
+  let j = n - 1
+
+  for(let k = m + n - 1; k >= 0; k--) {
+      if(i < 0 && j >= 0 || B[j] >= A[i]) {
+          A[k] = B[j--]
+      } else {
+          A[k] = A[i--]
+      }
+
+  }
+
+  return A
+};
+
 /* 优化后：语法简化 */
 var merge = function (nums1, m, nums2, n) {
   let i = m + n - 1
