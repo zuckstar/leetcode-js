@@ -1,6 +1,6 @@
 # leetcode-js
 
-LeetCode 刷题指南（JavaScript版）
+LeetCode 刷题指南（JavaScript 版）
 
 数据结构与算法的学习没有捷径，只有日积月累、水滴石穿，当然还要配合正确的学习方法，提高效率。
 
@@ -26,14 +26,14 @@ LeetCode 刷题指南（JavaScript版）
 [二叉树中序遍历](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/001%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86.js)
 
 [二叉树后序遍历](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/001%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86.js)
+
 ### 对称的二叉树
 
 首先先学习如何判断两个二叉树是否相等：
 
 [判断两棵树是否相同](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/002%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/%E7%AE%80%E5%8D%95-%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91.js)
 
-
-利用判断两棵树是否相等的算法（类似），以此延伸出判断B树是否是A树的子结构（⭐️）
+利用判断两棵树是否相等的算法（类似），以此延伸出判断 B 树是否是 A 树的子结构（⭐️）
 
 [树的子结构]()
 
@@ -52,20 +52,19 @@ LeetCode 刷题指南（JavaScript版）
 
 从上到下，从左至右的层序遍历二叉树，把值放在一个数组里，借助一个队列就可以解决：
 
-[从上到下打印二叉树I](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%911.js)
+[从上到下打印二叉树 I](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%911.js)
 
 仍然是从上到下，从左至右，但是同一层的节点的值要放在一个子数组里，定义两个队列，一个队列记录当前层的节点，一个队列记录下一层的节点即可解决：
 
-[从上到下打印二叉树II](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%912.js)
+[从上到下打印二叉树 II](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%912.js)
 
 之字形打印二叉树，记录当前是奇数层还是偶数层，如果是偶数层则把结果翻转。也可以借助栈的特性，用两个栈来解决，不过相对来说就麻烦多了。
 
-[从上到下打印二叉树III](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%913.js)
+[从上到下打印二叉树 III](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%913.js)
 
-自底向上的层序遍历，从左至右遍历（可以说出题者是相当无聊了）,讨巧一点，我们可以把（从上到下打印二叉树II）的结果反转一下，或者在每次添加结果的时候，都从头插入(unshift)，而不是从尾部插入(push)。
+自底向上的层序遍历，从左至右遍历（可以说出题者是相当无聊了）,讨巧一点，我们可以把（从上到下打印二叉树 II）的结果反转一下，或者在每次添加结果的时候，都从头插入(unshift)，而不是从尾部插入(push)。
 
-[从上到下打印二叉树IV](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%914.js)
-
+[从上到下打印二叉树 IV](https://github.com/zuckstar/leetcode-js/blob/main/%E6%A0%91%E4%B8%8E%E5%9B%BE/003%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/%E4%B8%AD%E7%AD%89-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%914.js)
 
 ### 二叉树的深度
 
@@ -87,11 +86,11 @@ LeetCode 刷题指南（JavaScript版）
 
 找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
 
-[路径总和II]()
+[路径总和 II]()
 
 路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）
 
-[路径总和III]()
+[路径总和 III]()
 
 ### 二叉搜索树
 
@@ -99,8 +98,7 @@ LeetCode 刷题指南（JavaScript版）
 
 [将有序数组转为二叉搜索树]()
 
-[二叉搜索树的第K大节点]()
-
+[二叉搜索树的第 K 大节点]()
 
 ### 二叉树的公共祖先
 
@@ -108,7 +106,6 @@ LeetCode 刷题指南（JavaScript版）
 
 注意利用二叉搜索树值的特性
 [二叉搜索树的最近公共祖先]()
-
 
 ## 数组
 
@@ -127,12 +124,14 @@ LeetCode 刷题指南（JavaScript版）
 递归+迭代法
 [反转链表]()
 
+除了传统的双指针法，别忘了还可以了用 WeakSet 这些数据结构来解决问题
+[环形链表]()
 
+找到环形链表的入口节点
+[环形链表 2]()
 
+[回文链表]()
 
 ## 动态规划
 
-[丑数/第k个数]()
-
-
-
+[丑数/第 k 个数]()
