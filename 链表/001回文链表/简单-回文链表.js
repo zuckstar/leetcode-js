@@ -128,8 +128,6 @@ var isPalindrome = function(head) {
       slow.next = pre
       pre = slow
       slow = next
-
-      
   }
 
   // 当链表长度为奇数的时候，跳过中间节点后开始比较
