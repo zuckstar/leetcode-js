@@ -17,12 +17,13 @@ n 不超过1690。
 https://leetcode-cn.com/problems/chou-shu-lcof/
 */ 
 
-// 思路: 动态规划
+// 思路: 动态规划，关键点 a2,a3,a5 记录的是指针位置
 
 /**
  * @param {number} n
  * @return {number}
  */
+
  var nthUglyNumber = function(n) {
   let a2 = 0, a3 = 0, a5 = 0
   let dp = []
