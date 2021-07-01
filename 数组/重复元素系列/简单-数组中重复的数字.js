@@ -35,7 +35,7 @@ var findRepeatNumber = function(nums) {
   return -1
 };    
 
-// 解法2：不利用额外空间，原地置换法 O(n) 时间复杂度
+// 解法2：不利用额外空间，原地置换法 O(n) 时间复杂度（原地哈希法）
 var findRepeatNumber = function(nums) {
     let i = 0
     while(i < nums.length) {
