@@ -86,6 +86,7 @@ var merge = function (nums1, m, nums2, n) {
     nums1[i--] = nums1[m] > nums2[n] ? nums1[m--] : nums2[n--]
   }
 
+  // 关键一步，如果 nums2 还有剩余，也就是 i > 0 的情况下，需要把 nums2 剩余的元素搬到 nums1 里去 极端用例：[0],0,[1],1
   if (n >= 0) {
     nums1.splice(0, i + 1)
     nums1.unshift(...nums2.splice(0, i + 1))

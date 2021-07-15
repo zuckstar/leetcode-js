@@ -63,7 +63,7 @@ function quickSort(arr, left, right) {
       pivot = arr[left]
 
    while(i < j) {
-    //  从右向左找到比基准值小的数
+    //  从右向左找到比基准值小的数，注意前置条件 i < j
      while(i < j && arr[j] >= pivot) {
        j--
      }
