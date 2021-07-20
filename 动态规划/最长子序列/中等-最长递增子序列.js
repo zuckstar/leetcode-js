@@ -37,13 +37,19 @@ https://leetcode-cn.com/problems/longest-increasing-subsequence/
 // 时间复杂度 O(n2) 空间复杂度 O(n) 的算法
 var lengthOfLIS = function(nums) {
   let len = nums.length
+
+  // 每一个位置的最长递增子序列长度默认为 1
   let dp = new Array(len).fill(1)
+
+  // 默认最大值为1 
   let maxRes = 1
 
   for(let i = 1; i < len; i++) {
-      for(let j = 0; j < i; j++) {
+    for (let j = 0; j < i; j++) {
+          // 开始更新当前位置的最长递增子序列长度
           if(nums[i] > nums[j]) dp[i] = Math.max(dp[j] + 1, dp[i]) 
-      }
+    }
+      // 更新最大值
       maxRes = Math.max(dp[i], maxRes)
   }
 
@@ -78,25 +84,28 @@ var lengthOfLIS = function(nums) {
 var lengthOfLIS = function(nums) {
   let len = nums.length
   let tails = []
-  let res = 0
+  let res = 1
+  
+  tails[res] = nums[0] // 初始化第一个值
 
-  for(let i = 0; i < len; i++) {
-      if(nums[i] > tails[res-1]) { // 若当前数字大于尾数字则直接向后插入
-          tails[res] = nums[i]
-          res++
+  for(let i = 1; i < len; i++) {
+      if(nums[i] > tails[res]) {
+          tails[++res] = nums[i]
       } else {
-          let start = 0, end = res
-          while(start < end) {
-              let mid = (start+end) >> 1
-              if(nums[i] <= tails[mid]) end = mid
-              else start = mid + 1
+          let left = 1
+          let right = res
+
+          // 二分查找的开始条件
+          while(left < right) {
+              let mid = (left+right)>>1
+              if(tails[mid] >= nums[i]) right = mid // 关键条件，向左移动限制
+              else left = mid + 1
           }
 
-          tails[start] = nums[i]
-          
-          if(res == end) res += 1 // 如果更新的是最后一位
+          tails[left] = nums[i]
       }
-
   }
+
   return res
+  
 };
