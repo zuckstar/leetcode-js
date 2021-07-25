@@ -7,7 +7,10 @@
 https://leetcode-cn.com/problems/3sum/solution/hua-jie-suan-fa-15-san-shu-zhi-he-by-guanpengchn/
 */
 
-// 解法：双指针法，有很多可以优化的细节
+// 解法：双指针
+// 固定一个数，剩下的数字继续做两数之和（双指针法）
+// 优化1：去重，nums[i] 去重复，L,R去重 
+// 优化2：排序后最左值如果大于0则直接退出
 
 
 var threeSum = function(nums) {
