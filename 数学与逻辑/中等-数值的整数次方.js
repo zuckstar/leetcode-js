@@ -26,32 +26,42 @@
 -104 <= xn <= 104
  
 
-注意：本题与主站 50 题相同：https://leetcode-cn.com/problems/powx-n/
-*/ 
+https://leetcode-cn.com/problems/powx-n/
+*/
+// 思路一：递归求解，时间复杂度 O(logn),
+// x5 可以分解为 x2 * x2 * x
+// x8 可以分解为 x4 * x4
+// 以此类推
+// 需要注意区分 n < 0 的情况，以及 n = 0 的情况
+var myPow = function (x, n) {
+  let quickMul = (x, n) => {
+    if (n === 0) return 1
 
-// 思路：快速幂，利用指数转二进制+位移运算，进行快速幂计算
+    let y = quickMul(x, Math.floor(n / 2))
 
- var myPow = function(x, n) {
-  if(n == 0) return 1
-  if(x == 0) return 0
+    return n % 2 ? y * y * x : y * y
+  }
+  if (x === 0) return 0
+  return n >= 0 ? quickMul(x, n) : 1 / quickMul(x, -n)
+}
 
-  let res = 1.0 
+// 思路二：快速幂，利用指数转二进制+位移运算，进行快速幂计算
 
-  // 处理指数为负数的情况
-  if(n < 0) {
-      x = 1/x
-      n = -n
+var myPow = function (x, n) {
+  let res = 1.0
+
+  if (n === 0) return 1 // 处理 n 为 0 的情况
+  if (x === 0) return 0 // 处理 x 为 0 的情况
+
+  let absN = Math.abs(n)
+
+  while (absN > 0) {
+    if (absN & 1) res *= x
+
+    x = x * x
+
+    absN >>>= 1 // 无符号移位，重点
   }
 
-  while(n > 0) {
-      // n 的当前二进制位为 1
-      if(n & 1) {
-          res *= x
-      } 
-
-      x *= x
-      n >>>= 1
-  }
-
-  return res
-};
+  return n > 0 ? res : 1 / res
+}

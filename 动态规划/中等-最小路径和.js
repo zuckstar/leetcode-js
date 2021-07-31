@@ -25,23 +25,35 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var minPathSum = function(grid) {
-  let n = grid.length
-  let m = grid[0].length
+var minPathSum = function (grid) {
+  let m = grid.length
+  let n = grid[0].length
 
-  let dp = Array.from({length:n},()=>[])
+  // 快速初始化二维数组
+  let dp = Array.from({ length: m }, () => new Array(n).fill(0))
+
+  // 初始化 dp 边界最小路径值
+
+  // 初始化起始点数值
   dp[0][0] = grid[0][0]
-  for(let i = 1; i < m; i++) {
-      dp[0][i] = grid[0][i] + dp[0][i-1]
-  }
-  for(let i = 1; i < n; i++) {
-      dp[i][0] = grid[i][0] + dp[i-1][0]
-  }
-  for(let i = 1; i < n; i++) {
-      for(let j = 1; j < m; j++) {
-          dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
-      }
-  }
-  return dp[n-1][m-1]
 
-};
+  // 初始化 dp 第一列最小路径值
+  for (let i = 1; i < m; i++) {
+    dp[i][0] = grid[i][0] + dp[i - 1][0]
+  }
+
+  // 初始化 dp 第一行最小路径值
+  for (let i = 1; i < n; i++) {
+    dp[0][i] = grid[0][i] + dp[0][i - 1]
+  }
+
+  // 动态规划路径
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
+    }
+  }
+
+  // 返回结果值
+  return dp[m - 1][n - 1]
+}
