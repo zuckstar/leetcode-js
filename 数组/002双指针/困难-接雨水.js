@@ -22,36 +22,37 @@ n == height.length
 https://leetcode-cn.com/problems/trapping-rain-water/
 */
 
-
 // 动态规划法：
-var trap = function(height) {
-  const n = height.length;
+var trap = function (height) {
+  const n = height.length
   if (n == 0) {
-      return 0;
+    return 0
   }
 
-  const leftMax = new Array(n).fill(0);
-  leftMax[0] = height[0];
+  // 从左至右找到左边界的最大值
+  const leftMax = new Array(n).fill(0)
+  leftMax[0] = height[0]
   for (let i = 1; i < n; ++i) {
-      leftMax[i] = Math.max(leftMax[i - 1], height[i]);
+    leftMax[i] = Math.max(leftMax[i - 1], height[i])
   }
 
-  const rightMax = new Array(n).fill(0);
-  rightMax[n - 1] = height[n - 1];
+  // 从右至左找到右边界的最大值
+  const rightMax = new Array(n).fill(0)
+  rightMax[n - 1] = height[n - 1]
   for (let i = n - 2; i >= 0; --i) {
-      rightMax[i] = Math.max(rightMax[i + 1], height[i]);
+    rightMax[i] = Math.max(rightMax[i + 1], height[i])
   }
 
-  let ans = 0;
+  // 根据左右边界值高低差，把当前高度和更低的边界做差值，计算累计雨水
+  let ans = 0
   for (let i = 0; i < n; ++i) {
-      ans += Math.min(leftMax[i], rightMax[i]) - height[i];
+    ans += Math.min(leftMax[i], rightMax[i]) - height[i]
   }
-  return ans;
-};
-
+  return ans
+}
 
 // 双指针法：
-var trap = function(height) {
+var trap = function (height) {
   let ans = 0
 
   let leftMax = 0
@@ -60,18 +61,18 @@ var trap = function(height) {
   let left = 0
   let right = height.length - 1
 
-  while(left < right) {
-      leftMax = Math.max(leftMax, height[left])
-      rightMax = Math.max(rightMax, height[right])
+  while (left < right) {
+    leftMax = Math.max(leftMax, height[left])
+    rightMax = Math.max(rightMax, height[right])
 
-      if(height[left] < height[right]) {
-          ans += leftMax - height[left]
-          left++
-      } else {
-          ans += rightMax - height[right]
-          right--
-      }
+    if (height[left] < height[right]) {
+      ans += leftMax - height[left]
+      left++
+    } else {
+      ans += rightMax - height[right]
+      right--
+    }
   }
 
   return ans
-};
+}

@@ -28,53 +28,9 @@
   
 */
 
-
 const nums1 = [1, 2, 3, 0, 0, 0]
 const nums2 = [2, 5, 6]
 const log = console.log
-
-/**
- * @param {number[]} nums1
- * @param {number} m
- * @param {number[]} nums2
- * @param {number} n
- * @return {void} Do not return anything, modify nums1 in-place instead.
- */
-
-/* 优化前：双指针从后往前覆盖法 */
-var merge = function (nums1, m, nums2, n) {
-  let i = m - 1
-  let j = n - 1
-  for (let k = m + n - 1; k >= 0; k--) {
-    if (i < 0 && j >= 0) {
-      nums1[k] = nums2[j--]
-    } else if (i >= 0 && j < 0) {
-      nums1[k] = nums1[i--]
-    } else if (nums2[j] > nums1[i]) {
-      nums1[k] = nums2[j--]
-    } else {
-      nums1[k] = nums1[i--]
-    }
-  }
-  return nums1
-};
-
-// 面试题 10.01. 合并排序的数组
-var merge = function(A, m, B, n) {
-  let i = m - 1
-  let j = n - 1
-
-  for(let k = m + n - 1; k >= 0; k--) {
-      if(i < 0 && j >= 0 || B[j] >= A[i]) {
-          A[k] = B[j--]
-      } else {
-          A[k] = A[i--]
-      }
-
-  }
-
-  return A
-};
 
 /* 优化后：语法简化 */
 var merge = function (nums1, m, nums2, n) {
@@ -92,7 +48,6 @@ var merge = function (nums1, m, nums2, n) {
     nums1.unshift(...nums2.splice(0, i + 1))
   }
   return nums1
-};
-
+}
 
 log(merge(nums1, 3, nums2, 3))
