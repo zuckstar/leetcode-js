@@ -15,26 +15,32 @@
   如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
 */
 
+// 一：贪心算法
+// 若当前指针所指元素之前的和小于0， 则丢弃当前元素之前的数列
 
-const eg1 = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-const log = console.log
-
-/**
- * @param {number[]} nums
- * @return {number}
- */
 var maxSubArray = function (nums) {
-  let sum = 0
+  let preSum = 0
   let max = nums[0]
   for (let i = 0; i < nums.length; i++) {
-    if (sum > 0) {
-      sum += nums[i]
+    if (preSum > 0) {
+      preSum += nums[i]
     } else {
-      sum = nums[i]
+      preSum = nums[i]
     }
-    max = Math.max(max, sum)
-
+    max = Math.max(max, preSum)
   }
   return max
-};
-log(maxSubArray(eg1))
+}
+
+// 二：动态规划
+var maxSubArray = function (nums) {
+  let max = nums[0]
+  let preSum = 0
+
+  nums.forEach((num) => {
+    preSum = Math.max(preSum + num, num)
+    max = Math.max(max, preSum)
+  })
+
+  return max
+}
