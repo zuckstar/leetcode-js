@@ -30,7 +30,6 @@
 
 */
 
-
 /*
  2. 中心扩展法 ，遍历每个字符串，从当前字符开始，当左右两边字符串相等的时候，
     向两边扩展，记录扩展的长度，取最大值。这种解法注意回文串的长度有奇数回文串（aba）和偶数（aabb）回文串就可以了,还有边界条件。
@@ -48,10 +47,9 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
+  if (!s || !s.length) return ''
 
-  if (!s || !s.length) return ""
-
-  let length = s.length;
+  let length = s.length
 
   let maxLength = 0,
     begin = 0
@@ -63,20 +61,19 @@ var longestPalindrome = function (s) {
 
     if (len > maxLength) {
       maxLength = len
-      begin = i - ((len - 1) >> 1)
+      begin = i - ((len - 1) >> 1) // 关键点二：len - 1 是为了保证偶数长度下也计算出正确的起始值
     }
   }
   return s.substr(begin, maxLength)
-};
+}
 
 var expandAroundCenter = function (s, left, right) {
   let length = s.length
-  while (left >= 0 && right <= length - 1 && (s[left] == s[right])) {
+  while (left >= 0 && right <= length - 1 && s[left] == s[right]) {
     left--
     right++
   }
-  return right - left - 1
-
+  return right - left - 1 // 关键点一：right 和 left 都是 ++，-- 后的值，要拿到最终的字符长度需要通过 right -left - 1 来计算
 }
 
 /*
@@ -108,20 +105,23 @@ var longestPalindrome = function (s) {
   let length = s.length
   if (length < 2) return s
 
-  let dp = Array.from({
-    length
-  }, () => [])
+  let dp = Array.from(
+    {
+      length,
+    },
+    () => []
+  )
   let max = 1
   let begin = 0
 
   for (let j = 0; j < length; j++) {
     for (let i = 0; i <= j; i++) {
       if (j - i < 2) {
-        dp[i][j] = (s[i] === s[j])
+        dp[i][j] = s[i] === s[j]
       } else {
-        dp[i][j] = (s[i] === s[j]) && dp[i + 1][j - 1]
+        dp[i][j] = s[i] === s[j] && dp[i + 1][j - 1]
       }
-      if (dp[i][j] && (j - i + 1 > max)) {
+      if (dp[i][j] && j - i + 1 > max) {
         max = j - i + 1
         begin = i
       }
@@ -129,8 +129,7 @@ var longestPalindrome = function (s) {
   }
 
   return s.substr(begin, max)
-
-};
+}
 
 /*
  4. Manacher(马拉车)算法

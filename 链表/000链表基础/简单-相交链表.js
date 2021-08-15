@@ -2,7 +2,7 @@
 160. 相交链表
 编写一个程序，找到两个单链表相交的起始节点。
 https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
-*/ 
+*/
 
 /*
 假设 链表 A 的非重合长度为 a ，链表B 的非重合长度为 b, 他们重合的部分长度为 c
@@ -14,12 +14,13 @@ a + c + b + c = b + c + a + c
 则 a + b = b + a 
 指针会一起到达终点，即为 null 的节点
 */
-var getIntersectionNode = function(headA, headB) {
+var getIntersectionNode = function (headA, headB) {
   let p1 = headA
   let p2 = headB
-  while(p1 != p2) {
-      p1 = p1 == null ? headB : p1.next
-      p2 = p2 == null ? headA : p2.next
+  // 隐含条件 p1 == p2 的时候，即跳出循环的时候 p1 和 p2 为两个链表的交点，或者是到达两个链表的终点（不相交）
+  while (p1 != p2) {
+    p1 = p1 == null ? headB : p1.next
+    p2 = p2 == null ? headA : p2.next
   }
   return p1
-};
+}
